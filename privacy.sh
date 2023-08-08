@@ -10,6 +10,15 @@ echo "- Disabling package survey"
 sudo apt-get remove -y popularity-contest
 echo "- Finished disabling package survey"
 
+# Install & enable UFW
+echo "- Setting up ufw"
+sudo apt-get install ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow OpenSSH
+sudo ufw --force enable
+echo "- Finished setting up ufw"
+
 # Set Cloudflare as default DNS provider on all interfaces
 echo "- Setting DNS provider to Cloudflare on all interfaces"
 interfaces=$(ls /sys/class/net)
