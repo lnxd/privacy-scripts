@@ -5,6 +5,11 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 
+# Ensure popularity-contest (package survey) not in use
+echo "- Disabling package survey"
+sudo apt-get remove -y popularity-contest
+echo "- Finished disabling package survey"
+
 # Set Cloudflare as default DNS provider on all interfaces
 echo "- Setting DNS provider to Cloudflare on all interfaces"
 interfaces=$(ls /sys/class/net)
