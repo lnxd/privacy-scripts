@@ -24,7 +24,7 @@ fi
 # Confirm user has reviewed the script
 echo -e "\nPlease visit this link and review the script before continuing: https://raw.githubusercontent.com/lnxd/debian-privacy-automations/main/privacy.sh"
 echo "Enter 'y' to continue or 'n' to exit"
-read -r response
+read -r response </dev/tty
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
     echo "- Continuing..."
 else
